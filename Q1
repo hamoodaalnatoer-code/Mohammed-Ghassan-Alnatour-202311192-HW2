@@ -1,27 +1,16 @@
--- Q1 PART 1
+-- Q1 PART 1 & 2
 DECLARE
-    TODAY DATE := SYSDATE;
-    TOMORROW TODAY%TYPE;
+    today DATE := SYSDATE;
+    tomorrow today%TYPE;
 BEGIN
-    TOMORROW := TODAY + 1;
+    tomorrow := today + 1;
+    
     DBMS_OUTPUT.PUT_LINE('Hello World');
-    DBMS_OUTPUT.PUT_LINE('Today: ' || TODAY);
-    DBMS_OUTPUT.PUT_LINE('Tomorrow: ' || TOMORROW);
+    DBMS_OUTPUT.PUT_LINE('Today: ' || today);
+    DBMS_OUTPUT.PUT_LINE('Tomorrow: ' || tomorrow);
 END;
 /
- 
--- Q1 PART 2
-DECLARE
-    TODAY DATE := SYSDATE;
-    TOMORROW DATE;
-BEGIN
-    TOMORROW := TODAY + 1;
-    DBMS_OUTPUT.PUT_LINE('Hello World');
-    DBMS_OUTPUT.PUT_LINE('Today: ' || TO_CHAR(TODAY, 'DD-MM-YYYY'));
-    DBMS_OUTPUT.PUT_LINE('Tomorrow: ' || TO_CHAR(TOMORROW, 'DD-MM-YYYY'));
-END;
-/
- 
+
 -- Q1 PART 3
 DECLARE
     my_date DATE;
@@ -29,19 +18,21 @@ DECLARE
 BEGIN
     my_date := SYSDATE;
     v_last_day := LAST_DAY(my_date);
+    
     DBMS_OUTPUT.PUT_LINE(TO_CHAR(my_date, 'Month dd, yyyy'));
-    DBMS_OUTPUT.PUT_LINE('Last day: ' || TO_CHAR(v_last_day, 'Month dd, yyyy'));
+    DBMS_OUTPUT.PUT_LINE('Last day: ' || v_last_day);
 END;
 /
  
 -- Q1 PART 4
 DECLARE
-    my_date DATE := SYSDATE;
+    my_date  DATE := SYSDATE;
     future_date DATE;
-    months_bet NUMBER;
+    months_bet  NUMBER;
 BEGIN
     future_date := my_date + 45;
-    months_bet := MONTHS_BETWEEN(future_date, my_date);
+    months_bet  := MONTHS_BETWEEN(future_date, my_date);
+    
     DBMS_OUTPUT.PUT_LINE('Today: ' || TO_CHAR(my_date, 'Month dd, yyyy'));
     DBMS_OUTPUT.PUT_LINE('Future date: ' || TO_CHAR(future_date, 'Month dd, yyyy'));
     DBMS_OUTPUT.PUT_LINE('Months between: ' || ROUND(months_bet, 2));
